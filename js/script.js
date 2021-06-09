@@ -17,32 +17,54 @@ if (wordResult === true) {
     outputElememnt.innerHTML += "La tua parola: " + userWord + " è NON è palindroma! ;("
 }
 
+
+
+// var userWord = prompt("Inserisci una parola");
+
+
+// function palindrome(word) {
+//     lungezzaWord = word.lenght;
+//     var wordReverse = " ";
+
+//     for (var i = (userWord - 1); i >= 0; i--) {
+//         wordReverse += userWord[i];
+//     }
+//     return wordReverse;
+// }
+// var wordPalindrome = palindrome(userWord);
+
+// if (userWord == wordPalindrome) {
+//     outputElememnt.innerHTML += "La tua parola è un palindromo!"
+// } else {
+//     outputElememnt.innerHTML += "Non è un palindromo!"
+
+// }
+
+// function palindroma(parola) {
+//     var wordReverse = parola.split("").reverse().join("");
+//     return wordReverse;
+// }
+
 function getRandomNumber() {
     return Math.floor(Math.random() * 5) + 1;
 }
 
 function genderNum(num) {
     if (num % 2 === 0) {
-        return outputElememnt.innerHTML += "\n" + "Il risultato è PARI" + " " + num;
+        return "P"
     } else {
-        return outputElememnt.innerHTML += "\n" + "Il risultato è DISPARI" + " " + num;
+        return "D"
     }
 }
 
 
-var userChoice = prompt("Scegliere Pari o Dispari scrivendo P o D");
+var userChoice = prompt("Scegliere Pari o Dispari scrivendo P o D").toUpperCase();
 var userNumber = parseInt(prompt("Scegliere un numero da 1 a 5"));
 
 var sum = getRandomNumber() + userNumber;
 
-genderNum(sum);
-
-for (var i = 0; i < userChoice.length; i++) {
-    if (userChoice[i] === "P" && sum % 2 === 0) {
-        outputElememnt.innerHTML += "\n" + "Hai scelto " + userChoice + " Hai Vinto!";
-    } else if (userChoice[i] === "D" && sum % 2 !== 0) {
-        outputElememnt.innerHTML += "\n" + "Hai scelto " + userChoice + " Hai Vinto!";
-    } else {
-        outputElememnt.innerHTML += "\n" + "Ha vinto il computer";
-    }
+if (userChoice === genderNum(sum)) {
+    outputElememnt.innerHTML += "\n" + "Hai scelto " + userChoice + " Hai Vinto!" + " " + sum;
+} else {
+    outputElememnt.innerHTML += "\n" + "Ha vinto il computer" + " " + sum;
 }
