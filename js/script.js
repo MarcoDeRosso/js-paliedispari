@@ -23,9 +23,9 @@ function getRandomNumber() {
 
 function genderNum(num) {
     if (num % 2 === 0) {
-        return outputElememnt.innerHTML += "\n" + "Il risultato è PARI";
+        return outputElememnt.innerHTML += "\n" + "Il risultato è PARI" + " " + num;
     } else {
-        return outputElememnt.innerHTML += "\n" + "Il risultato è DISPARI";
+        return outputElememnt.innerHTML += "\n" + "Il risultato è DISPARI" + " " + num;
     }
 }
 
@@ -36,3 +36,13 @@ var userNumber = parseInt(prompt("Scegliere un numero da 1 a 5"));
 var sum = getRandomNumber() + userNumber;
 
 genderNum(sum);
+
+for (var i = 0; i < userChoice.length; i++) {
+    if (userChoice[i] === "P" && sum % 2 === 0) {
+        outputElememnt.innerHTML += "\n" + "Hai scelto " + userChoice + " Hai Vinto!";
+    } else if (userChoice[i] === "D" && sum % 2 !== 0) {
+        outputElememnt.innerHTML += "\n" + "Hai scelto " + userChoice + " Hai Vinto!";
+    } else {
+        outputElememnt.innerHTML += "\n" + "Ha vinto il computer";
+    }
+}
