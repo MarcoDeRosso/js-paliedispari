@@ -45,8 +45,8 @@ if (wordResult === true) {
 //     return wordReverse;
 // }
 
-function getRandomNumber() {
-    return Math.floor(Math.random() * 5) + 1;
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function genderNum(num) {
@@ -59,9 +59,17 @@ function genderNum(num) {
 
 
 var userChoice = prompt("Scegliere Pari o Dispari scrivendo P o D").toUpperCase();
+while (userChoice !== "P" && userChoice !== "D") {
+    alert("attenzione devi inserire o pari o dispari scrivendo P o D")
+    var userChoice = prompt("Scegliere Pari o Dispari scrivendo P o D").toUpperCase();
+}
 var userNumber = parseInt(prompt("Scegliere un numero da 1 a 5"));
+while (isNaN(userNumber) || userNumber < 1 || userNumber > 5) {
+    alert("attenzione devi inserire un numero da 1 a 5");
+    var userNumber = parseInt(prompt("inserisci un numero da 1 a 5"));
+}
 
-var sum = getRandomNumber() + userNumber;
+var sum = getRandomNumber(1, 5) + userNumber;
 
 if (userChoice === genderNum(sum)) {
     outputElememnt.innerHTML += "\n" + "Hai scelto " + userChoice + " Hai Vinto!" + " " + sum;
